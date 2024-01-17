@@ -9,8 +9,23 @@ app.get("/", (req, res) => {
 });
 
 const root = {
-  hello: () => "hi im krishna",
-  welcome: () => "welcome to graphql",
+  product: () => {
+    return {
+      id: 34234,
+      name: "Mobile App",
+      desciption: "We will be using flutter for mobile app development.",
+      price: 200000,
+      soldout: false,
+      stores: [
+        {
+          store: "india",
+        },
+        {
+          store: "usa",
+        },
+      ],
+    };
+  },
 };
 
 app.use(
