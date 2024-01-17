@@ -8,6 +8,19 @@ app.get("/", (req, res) => {
   res.send("GraphQL is amazing!");
 });
 
+class Product {
+  constructor(id, { name, desciption, price, soldout, stores }) {
+    this.id = id;
+    this.name = name;
+    this.desciption = desciption;
+    this.price = price;
+    this.soldout = soldout;
+    this.stores = stores;
+  }
+}
+
+const productDatabase = {};
+
 const root = {
   product: () => {
     return {
@@ -25,6 +38,11 @@ const root = {
         },
       ],
     };
+  },
+  createProduct: ({ input }) => {
+    let id = require("crypto").randomBytes(10).toString("hex");
+    productDatabase[id] = input;
+    return new Product(id, input);
   },
 };
 
