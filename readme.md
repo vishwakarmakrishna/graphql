@@ -48,7 +48,7 @@ mutation {
     name: "New Product"
     description: "Product description"
     price: 100.00
-    soldout: false
+    soldout: ONSALE
     inventory: 100
     stores: [
       { store: "Store1" },
