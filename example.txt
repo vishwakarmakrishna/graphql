@@ -1,0 +1,92 @@
+# Query
+
+{
+  getProduct(id: "e1398b6eba1d5aa89ece") {
+    id
+    price
+    description
+    name
+    stores {
+      store
+    }
+  }
+}
+
+# Reponse
+
+{
+  "data": {
+    "getProduct": {
+      "id": "e1398b6eba1d5aa89ece",
+      "price": 0.1,
+      "description": null,
+      "name": "Product 2",
+      "stores": [
+        {
+          "store": "12313123"
+        },
+        {
+          "store": "390849384"
+        }
+      ]
+    }
+  }
+}
+
+
+
+# mutation
+
+mutation {
+  createProduct(input: 
+    {
+      name: "Product 2",
+      inventory:1,
+      description: "data tat",
+      price: 0.1,
+      soldout: false,
+      stores: [
+        {
+          store: "12313123"
+        },
+        {
+          store: "390849384"
+        }
+      ]
+    }
+  ) {
+    id
+    name
+    price
+    description
+    stores {
+      store
+    }
+    inventory
+  }
+}
+
+# Reponse
+
+{
+  "data": {
+    "createProduct": {
+      "id": "9161ef3b5ddc145eed95",
+      "name": "Product 2",
+      "price": 0.1,
+      "description": null,
+      "stores": [
+        {
+          "store": "12313123"
+        },
+        {
+          "store": "390849384"
+        }
+      ],
+      "inventory": null
+    }
+  }
+}
+
+
+
