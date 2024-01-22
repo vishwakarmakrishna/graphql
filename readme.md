@@ -36,6 +36,26 @@ query {
 }
 ```
 
+### getAllProduct
+
+Query to retrieve details of all products in the database.
+
+```graphql
+query {
+  getAllProduct {
+    id
+    name
+    description
+    inventory
+    price
+    soldout
+    stores {
+      store
+    }
+  }
+}
+```
+
 ## Mutation
 
 ### createProduct(input: ProductInput)

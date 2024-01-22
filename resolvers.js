@@ -16,6 +16,12 @@ const resolvers = {
   getProduct: ({ id }) => {
     return new Product(id, productDatabase[id]);
   },
+  getAllProduct: () => {
+    const allProducts = Object.keys(productDatabase).map((id) => {
+      return new Product(id, productDatabase[id]);
+    });
+    return allProducts;
+  },
   createProduct: ({ input }) => {
     let id = require("crypto").randomBytes(10).toString("hex");
     productDatabase[id] = input;
