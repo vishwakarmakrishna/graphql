@@ -10,27 +10,6 @@ mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
 });
 
-const widgetSchema = new mongoose.Schema({
-  name: {
-    type: String,
-  },
-  description: {
-    type: String,
-  },
-  price: {
-    type: Number,
-  },
-  inventory: {
-    type: Number,
-  },
-  soldout: {
-    type: String,
-  },
-  stores: {
-    type: Array,
-  },
-});
-const Widgets = mongoose.model("widgets", widgetSchema);
 // MongoDB models
 const ProductModel = mongoose.model("Product", {
   name: String,
@@ -40,4 +19,4 @@ const ProductModel = mongoose.model("Product", {
   inventory: Number,
   stores: [{ store: String }],
 });
-export { Widgets, ProductModel };
+export { ProductModel };
