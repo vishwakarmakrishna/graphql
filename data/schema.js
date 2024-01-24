@@ -39,8 +39,19 @@ const schema = buildSchema(`
         stores: [StoreInput]!
     }
 
+    input UpdateProductInput {
+        name: String
+        description: String
+        price: Float
+        soldout: Soldout
+        inventory: Int
+        stores: [StoreInput]!
+    }
+
     type Mutation{
         createProduct(input: ProductInput): Product
+        updateProduct(id: ID, input: UpdateProductInput): Product
+        deleteProduct(id: ID): Product
     }
 `);
 export default schema;

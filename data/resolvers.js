@@ -32,5 +32,36 @@ const resolvers = {
       throw new Error("Error creating product");
     }
   },
+  deleteProduct: async ({ id }) => {
+    try {
+      const objectId = new mongoose.Types.ObjectId(id);
+      const deletedProduct = await ProductModel.findByIdAndDelete(objectId);
+      if (!deletedProduct) {
+        throw new Error("Product not found");
+      }
+      return deletedProduct;
+    } catch (error) {
+      throw new Error("Error deleting product");
+    }
+  },
+
+  updateProduct: async ({ id, input }) => {
+    try {
+      const objectId = new mongoose.Types.ObjectId(id);
+      const updatedProduct = await ProductModel.findByIdAndUpdate(
+        objectId,
+        { $set: input },
+        { new: true }
+      );
+
+      if (!updatedProduct) {
+        throw new Error("Product not found");
+      }
+
+      return updatedProduct;
+    } catch (error) {
+      throw new Error("Error updating product");
+    }
+  },
 };
 export default resolvers;
